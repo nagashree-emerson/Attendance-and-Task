@@ -1,0 +1,16 @@
+{
+  "name": "assign-tasks-endpoint-validation-error",
+  "description": "Checks that the /assign-tasks endpoint returns a validation error when required fields are missing or invalid.",
+  "test_type": "functional",
+  "input": "POST request to /assign-tasks with an invalid JSON body (e.g., missing 'tasks' or 'employee_roster', or empty lists).",
+  "output": "JSON response with success=false and error.type='validation_error'.",
+  "success_criteria": [
+    "HTTP status code is 422",
+    "response['success'] is False",
+    "response['error']['type'] == 'validation_error'"
+  ],
+  "error_scenarios": [
+    "API returns 400 for malformed JSON",
+    "API returns 422 for missing/invalid fields"
+  ]
+}
