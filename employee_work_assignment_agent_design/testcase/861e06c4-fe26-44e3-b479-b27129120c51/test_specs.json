@@ -1,0 +1,15 @@
+{
+  "name": "integration-notify-stakeholders-success",
+  "description": "Tests the integration of the notification system by verifying that notifications are sent for both assignments and unassigned tasks.",
+  "test_type": "integration",
+  "input": "Call notify_stakeholders with valid assignments and unassigned_tasks lists.",
+  "output": "Boolean indicating notification success.",
+  "success_criteria": [
+    "Return value is True",
+    "Both notify_assignments and notify_unassigned_tasks are called"
+  ],
+  "error_scenarios": [
+    "Notification adapter raises an exception",
+    "Return value is False if any notification fails"
+  ]
+}
