@@ -1,0 +1,16 @@
+{
+  "name": "utilization-summary-endpoint-success",
+  "description": "Validates that the /utilization-summary endpoint returns a correct utilization summary for a given date.",
+  "test_type": "functional",
+  "input": "POST request to /utilization-summary with a valid date in the JSON body.",
+  "output": "JSON response with success=true and a utilization_summary dict.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "response['success'] is True",
+    "response contains 'utilization_summary' as a dict"
+  ],
+  "error_scenarios": [
+    "API returns 500 if the utilization API client fails",
+    "API returns 400 for malformed JSON"
+  ]
+}
