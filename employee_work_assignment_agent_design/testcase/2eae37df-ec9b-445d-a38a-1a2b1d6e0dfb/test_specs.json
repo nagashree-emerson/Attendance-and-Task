@@ -1,0 +1,18 @@
+{
+  "name": "assign-tasks-endpoint-success",
+  "description": "Validates that the /assign-tasks endpoint successfully assigns tasks to employees when provided with valid input.",
+  "test_type": "functional",
+  "input": "POST request to /assign-tasks with a valid JSON body containing at least one task and one employee with matching skills and sufficient capacity.",
+  "output": "JSON response with success=true, assignments list, utilization summary, and unassigned_tasks (possibly empty).",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "response['success'] is True",
+    "response contains 'assignments' as a non-empty list",
+    "response contains 'utilization_summary' as a dict",
+    "response contains 'unassigned_tasks' as a list"
+  ],
+  "error_scenarios": [
+    "API returns 500 due to internal error",
+    "API returns 422 due to validation error"
+  ]
+}
