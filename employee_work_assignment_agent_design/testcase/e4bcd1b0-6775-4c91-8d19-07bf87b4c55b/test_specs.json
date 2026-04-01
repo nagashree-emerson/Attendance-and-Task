@@ -1,0 +1,15 @@
+{
+  "name": "integration-assign-tasks-with-unavailable-employee",
+  "description": "Tests the integration of business rules by assigning a task to an employee who is marked as absent, ensuring the task is unassigned.",
+  "test_type": "integration",
+  "input": "POST request to /assign-tasks with a task and an employee whose attendance status is 'absent'.",
+  "output": "JSON response with the task listed in 'unassigned_tasks' and not in 'assignments'.",
+  "success_criteria": [
+    "response['success'] is True",
+    "response['assignments'] does not include the absent employee",
+    "response['unassigned_tasks'] contains the task with a reason indicating unavailability"
+  ],
+  "error_scenarios": [
+    "API returns 500 due to business rule evaluation error"
+  ]
+}
