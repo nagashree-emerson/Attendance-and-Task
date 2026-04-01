@@ -1,0 +1,16 @@
+{
+  "name": "integration-unassigned-tasks-endpoint",
+  "description": "Tests the /unassigned-tasks endpoint integration with the UnassignedTasksAPIClient, ensuring it returns unassigned tasks for a given date.",
+  "test_type": "integration",
+  "input": "POST request to /unassigned-tasks with a valid date in the JSON body.",
+  "output": "JSON response with success=true and a list of unassigned_tasks.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "response['success'] is True",
+    "response contains 'unassigned_tasks' as a list"
+  ],
+  "error_scenarios": [
+    "API returns 500 if the unassigned tasks API client fails",
+    "API returns 400 for malformed JSON"
+  ]
+}
